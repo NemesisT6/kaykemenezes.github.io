@@ -1,0 +1,302 @@
+* {
+    font-family: "Montserrat", sans-serif;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --main-color: #191970;
+    --main-text-color: #FFDAB9;
+    --border-color: #999;
+    --bio-bg-color: #0e0d0d;
+    --bio-border-color: #000;
+    --about-bg-color: #000009;
+}
+
+.Kayke {
+    width: 175px;  
+    height: 175px;
+    border-radius: 5%;
+    margin-bottom: 25px;
+
+    /* Propriedades da borda */
+    border: 2px solid transparent; /* Largura de 5px, borda sólida, começa transparente */
+    animation: borderColorChange 5s infinite; /* Aplica a animação com duração de 2 segundos, repetindo indefinidamente */
+}
+
+/* Define a animação */
+@keyframes borderColorChange {
+    0% {
+        border-color: rgb(255, 255, 255); /* Cor inicial da borda */
+    }
+    50% {
+        border-color: rgb(0, 0, 0); /* Cor intermediária da borda */
+    }
+    100% {
+        border-color: rgb(255, 255, 255); /* Retorna à cor inicial */
+    }
+}
+
+.icon {
+    width: 40px;  
+    transition: transform 0.3s ease;
+}
+
+.icon:hover{
+    transform: scale(1.2);
+}
+
+.highlight {
+    color: #00FF00;
+}
+
+#container {
+    display: flex;
+    flex-direction: row;
+    color: var(--main-text-color);
+}
+
+#bio-container {
+    flex: 1 1 20%;
+    min-height: 100vh;
+    background-color: var(--bio-bg-color);
+    text-align: center;
+    padding: 30px 12px;
+    border-right: 5px solid var(--bio-border-color);
+}
+
+#about-container {
+    flex: 1 1 80%;
+    min-height: 100vh;
+    background-color: var(--about-bg-color);
+    padding: 50px;
+}
+
+#bio-container h2 {
+    margin-bottom: 25px;
+}
+
+#bio-container p{
+ margin-bottom: 30px;
+}
+
+#email-container {
+    display: flex;
+    justify-content: center;
+    overflow:hidden;
+}
+
+#email-container ion-icon,
+#email-container a{
+    flex: 1 1 0;
+}
+
+#email-container a {
+    color: var(--main-text-color);
+    text-decoration: none;
+    max-width: 300px;
+}
+
+#email-container ion-icon{
+    color:var(--main-color);
+    margin-right: 5px;
+    max-width: 20px;
+}
+
+#email-container:hover{
+    transform: scale(1.01);
+}
+
+#email-container a {
+    color: var(--main-text-color); /* Cor padrão do texto */
+    text-decoration: none;
+    transition: color 1s ease; /* Adiciona uma transição suave à cor do texto */
+}
+
+#email-container:hover a {
+    color: var(--main-color); /* Altere para a cor desejada quando o mouse estiver sobre o contêiner */
+}
+
+
+#name {
+    font-size: 42px;
+    margin-bottom: 15px;
+}
+
+#title {
+    font-size: 24px;
+    margin-bottom: 25px;
+    font-weight: bold;
+}
+
+.description{
+    max-width: 75%;
+    margin-bottom: 10px;
+}
+
+#btn-projects {
+    font-weight: bold;
+    font-size: 16px;
+    color: var(--main-text-color);
+    background-color: var(--main-color);
+    border: 2px solid var(--main-color);
+    border-radius: 5px;
+    text-decoration: none;
+    transition: .5s;
+    margin: 25px 0;
+    padding: 12px 10px;
+    width: 150px;
+    text-align: center;
+    display: flex;
+}
+
+#btn-projects ion-icon,
+#btn-projects span {
+     flex: 1 1 0;
+}
+
+#btn-projects ion-icon {
+     font-size: 20px;
+     max-width: 20px;
+}
+
+#btn-projects:hover{
+    background-color: transparent;
+}
+
+#skills-section-title {
+    border-top: 0.5px solid var(--border-color);
+    padding-top: 20px;
+    margin-bottom: 20px;
+    font-size: 25px;
+}
+
+#skills-container {
+    display:flex;
+    flex-wrap: wrap;
+    margin-top: 25px;
+}
+
+.skills-box{
+    flex: 1 1 33%;
+    max-width: 33%;
+    margin-bottom: 35px;
+}
+
+.skills-title {
+    font-size: 20px;
+    margin-bottom: 15px;
+    font-weight: bold;
+    padding-left: 10px;
+    border-left: 5px solid var(--main-color);
+}
+
+#numbers-container {
+    position: fixed; /* Fica fixo na tela */
+    bottom: 0; /* Começa na parte inferior da tela */
+    right: 20px; /* Distância da borda direita */
+    color: #00FF00; /* Cor verde para os números */
+    font-size: 10px; /* Tamanho menor da fonte dos números */
+    pointer-events: none; /* Não interfere na interação do mouse */
+}
+
+.animated-number {
+    display: inline-block; /* Para aplicar animações individuais */
+    opacity: 0; /* Começa invisível */
+    animation: rise 3s ease-in-out infinite; /* Aplica a animação de subida em loop */
+}
+
+/* Define a animação de subida e desaparecimento */
+@keyframes rise {
+    0% {
+        transform: translateY(0); /* Começa na posição inicial */
+        opacity: 1; /* Totalmente visível */
+    }
+    50% {
+        transform: translateY(-200px); /* Move para cima (até 200px) */
+        opacity: 1; /* Mantém visível enquanto sobe */
+    }
+    100% {
+        transform: translateY(-200px); /* Continua na posição alta */
+        opacity: 0; /* Desaparece ao final */
+    }
+}
+
+/* Adicionando um atraso aleatório para cada número */
+.animated-number:nth-child(1) { animation-delay: 1s; }
+.animated-number:nth-child(2) { animation-delay: 2s; }
+.animated-number:nth-child(3) { animation-delay: 3s; }
+.animated-number:nth-child(4) { animation-delay: 4s; }
+.animated-number:nth-child(5) { animation-delay: 5s; }
+.animated-number:nth-child(6) { animation-delay: 6s; }
+.animated-number:nth-child(7) { animation-delay: 7s; }
+.animated-number:nth-child(8) { animation-delay: 8s; }
+.animated-number:nth-child(9) { animation-delay: 9s; }
+.animated-number:nth-child(10) { animation-delay: 10s; }
+
+#todos {
+    text-align: center; /* Centraliza o texto do rodapé */
+    padding: 0; /* Preenchimento interno */
+    margin: 0; /* Remove qualquer margem */
+    position: relative; /* Para o posicionamento do rodapé */
+    bottom: 0; /* Posiciona na parte inferior */
+    width: 100%; /* Largura total */
+    background-color: transparent; /* Fundo transparente */
+    border: none; /* Garante que não haja bordas no rodapé */
+}
+
+@media(max-width: 450px) {
+    #container {
+        flex-direction: column;
+    }
+
+    #bio-container {
+        min-height: auto;
+        border-right: none;
+        border-bottom: 5px solid var(--bio-border-color);
+
+    }
+
+    #bio-container h2{
+        display:none;
+    }
+
+    #bio-container p {
+        max-width: 60%;
+        margin: 10px auto;
+    }
+
+    #about-container {
+        text-align: center;
+        padding: 30px;
+    }
+
+    #about-container .description{
+        margin: 10px auto;
+        max-width: 100%;
+        line-height: 20px;
+    }
+
+    #btn-projects{
+        margin: 20px auto;
+    }
+
+    .skills-box {
+        flex: 1 1 100%;
+        max-width: 100%;
+        margin-bottom: 40px;
+        text-align: left;
+    }
+
+    .icon {
+        width: 45px;
+        margin-right: -1px;
+    }
+
+    .animated-number {
+        animation: none; /* Remove a animação */
+        opacity: 0; /* Garante que os números sejam visíveis */
+    }
+
+}
